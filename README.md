@@ -1,4 +1,4 @@
-# Registration Form with Validation
+# Registration Form Validation Using JavaScript
 
 This project is a simple registration form with client-side validation implemented using HTML, CSS, and JavaScript.
 
