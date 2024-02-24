@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #242424;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #bbb;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 15px;
+            background-color: #444;
+            color: #ddd;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 15px;
+            background-color: #5e5e5e;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #737373;
+        }
+
+        .error {
+            color: #ff7f7f;
+            font-size: 14px;
+            margin-top: -10px;
+            text-align: left;
+        }
+
+        .register-button {
+            margin-top: 18px;
+        }
+
+        .success {
+            color: #4CAF50;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+
+        .visit-us {
+            color: #ddd;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .icon-container {
+            margin: 0 10px;
+        }
+
+        .icon-link {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .visit-us {
+            color: #ddd;
+        }
+
+        .fab {
+            font-size: 24px;
+        }
+
+        .playstore-icon {
+            color: #fff;
+        }
+
+        .youtube-icon {
+            color: #ff0000;
+            margin-right: 10px;
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <h2>Registration Form</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div id="passwordError" class="error"></div>
+
+        <input class="register-button" type="submit" value="Register">
+        <div id="successMessage" class="success" style="display: none;">Registration Successful!</div>
+    </form>
+
+    <div class="visit-us">
+        <span class="icon-container">
+            <a href="https://play.google.com/store/apps/developer?id=Supreme+Soft" class="icon-link playstore-icon"
+                target="_blank">
+                <i class="fab fa-google-play fa-lg"></i>
+            </a>
+        </span>
+
+        <span class="icon-container">
+            <a href="https://www.youtube.com/@supreme-soft" class="icon-link youtube-icon" target="_blank">
+                <i class="fab fa-youtube fa-lg"></i>
+            </a>
+        </span>
+        <span class="icon-container">
+            <a href="https://github.com/Supreme-Soft" class="icon-link github-icon" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+        </span>
+    </div>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            let nameError = document.getElementById('nameError');
+            let emailError = document.getElementById('emailError');
+            let passwordError = document.getElementById('passwordError');
+            let successMessage = document.getElementById('successMessage');
+
+            let valid = true;
+
+            nameError.innerHTML = '';
+            emailError.innerHTML = '';
+            passwordError.innerHTML = '';
+
+            if (name === '') {
+                nameError.innerHTML = 'Name is required';
+                valid = false;
+            }
+
+            if (email === '') {
+                emailError.innerHTML = 'Email is required';
+                valid = false;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                emailError.innerHTML = 'Invalid email address';
+                valid = false;
+            }
+
+            if (password === '') {
+                passwordError.innerHTML = 'Password is required';
+                valid = false;
+            } else if (password.length < 6) {
+                passwordError.innerHTML = 'Password must be at least 6 characters';
+                valid = false;
+            }
+
+            if (valid) {
+                successMessage.style.display = 'block';
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                    document.getElementById('registrationForm').reset();
+                }, 2000);
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
