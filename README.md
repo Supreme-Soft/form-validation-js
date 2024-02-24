@@ -1,4 +1,4 @@
-# Registration Form with Validation and Social Media Icons
+# Registration Form with Validation
 
 This project is a simple registration form with client-side validation implemented using HTML, CSS, and JavaScript.
 
