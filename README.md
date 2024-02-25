@@ -9,11 +9,8 @@ This project is a simple registration form with client-side validation implement
 - Error messages are displayed if any field is missing or invalid.
 - Success message is displayed upon successful registration.
  
-## Technologies Used
-
-- HTML
-- CSS
-- JavaScript
+## Explore:
+Check out the live project on [CodePen](https://codepen.io/Supreme-Soft/pen/gOENVJz). Feel free to share your thoughts and any improvements you make on CodePen.
 
 ## How to Use
 
@@ -22,7 +19,3 @@ This project is a simple registration form with client-side validation implement
 3. Fill out the registration form fields with valid information.
 4. Click the "Register" button to submit the form.
 5. If successful, you'll see a confirmation message. If there are any errors, they will be displayed below the respective fields.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
